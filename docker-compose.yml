@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  web: 
+    user: "node"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - /usr/src/lafeli/node_modules/
+      - .:/usr/src/lafeli
+    ports:
+      - '127.0.0.1:4200:4200'
+    command: [ "npm", "start" ]
